@@ -126,7 +126,7 @@ for (i in 1:nrow(activity.MissingReplaced)) {
     }
 }</code></pre>
 <ul>
-<li>Make a histogram of the total number of steps taken each day and Calculate and report the <strong>mean</strong> and <strong>median</strong> total number of steps taken per day. Do these values differ from the estimates from the first part of the assignment? What is the impact of imputing missing data on the estimates of the total daily number of steps?</li>
+<li>Make a histogram of the total number of steps taken each day and Calculate and report the <strong>mean</strong> and <strong>median</strong> total number of steps taken per day.</li>
 </ul>
 <pre class="r"><code>totalSteps.MissingReplaced &lt;- aggregate(steps ~ date, data = activity.MissingReplaced, sum)
 hist(totalSteps.MissingReplaced$steps, main = &quot;Total Number of Steps (missing values replaced)&quot;, xlab = &quot;Steps taken each day&quot;,)</code></pre>
@@ -150,7 +150,7 @@ totalStepsMedian.MissingReplaced = as.integer(median(totalSteps.MissingReplaced$
 activity.MissingReplaced$day &lt;- ifelse(activity.MissingReplaced$day, &quot;weekend&quot;, &quot;weekday&quot;)
 activity.MissingReplaced$day &lt;- factor(activity.MissingReplaced$day, levels=c(&quot;weekend&quot;, &quot;weekday&quot;))</code></pre>
 <ul>
-<li>Make a panel plot containing a time series plot (i.e. <code>type = &quot;l&quot;</code>) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis). The plot should look something like the following, which was created using <strong>simulated data</strong>:</li>
+<li>Make a panel plot containing a time series plot (i.e. <code>type = &quot;l&quot;</code>) of the 5-minute interval (x-axis) and the average number of steps taken, averaged across all weekday days or weekend days (y-axis).</li>
 </ul>
 <pre class="r"><code>avgStepsTaken.WeekdayWeekend &lt;- aggregate(steps~interval+day, activity.MissingReplaced, mean)
 
